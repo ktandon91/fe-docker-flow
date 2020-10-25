@@ -6,5 +6,5 @@ before_install:
     - docker build -t ktandon1991/fe-docker-flow -f Dockerfile.dev .
 
 script:
-    - docker run ktandon1991/fe-docker-flow npm run test -- --coverage
+    - docker run -e CI=true ktandon1991/fe-docker-flow npm run test
 

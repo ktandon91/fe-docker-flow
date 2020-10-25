@@ -8,3 +8,16 @@ before_install:
 script:
     - docker run -e CI=true ktandon1991/fe-docker-flow npm run test
 
+deploy:
+    edge: true
+    provider: elasticbeanstalk
+    region: "us-east-2"
+    app: "docker-react"
+    env: "DockerReact-env"
+    bucket_name: "elasticbeanstalk-us-east-2-924252402560"
+    bucket_path: "docker-react"
+    on:
+        branch: main
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key:
+        secure: "$AWS_SECRET_KEY"
